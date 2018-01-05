@@ -1,0 +1,33 @@
+def minSdkVersion = 15
+
+if(cdvMinSdkVersion == null) {
+    ext.cdvMinSdkVersion = minSdkVersion;
+} else if (cdvMinSdkVersion.toInteger() < minSdkVersion) {
+    ext.cdvMinSdkVersion = minSdkVersion;
+}
+
+repositories{
+    jcenter()
+    flatDir{
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    compile(name:'animated-vector-drawable-23.4.0', ext:'aar')
+    compile(name:'appcompat-v7-23.4.0', ext:'aar')
+    compile(name:'core-8.4.47', ext:'aar')
+    compile(name:'bi-sdk-8.4.47', ext:'aar')
+    compile(name:'platform-8.4.47', ext:'aar')
+    compile(name:'report-sdk-8.4.47', ext:'aar')
+    compile(name:'recyclerview-v7-23.4.0', ext:'aar')
+    compile(name:'support-v4-23.4.0', ext:'aar')
+    compile(name:'support-vector-drawable-23.4.0', ext:'aar')
+    compile(name:'xUtils-2.6.14', ext:'aar')
+}
+
+android {
+
+}

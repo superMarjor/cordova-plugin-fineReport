@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.net.ecode.fr" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>FineReport</name>
+    <js-module name="FineReport" src="www/FineReport.js">
+        <clobbers target="FineReport" />
+    </js-module>
+    
+    <!-- android配置 -->
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="FineReport">
+                <param name="android-package" value="com.net.ecode.fr.FineReport"/>
+            </feature>
+        </config-file>
+        
+        <config-file target="AndroidManifest.xml" parent="/manifest/application" after="tools:replace='android:label,android:hardwareAccelerated,android:icon'">
+        </config-file>
+        
+        <framework src="src/android/repo.gradle" custom="true" type="gradleReference"/>
+        
+        <source-file src="src/android/main/java/FineReport.java" target-dir="src/com/net/ecode/fr"/>
+        
+        <source-file src="src/android/libs/AMap_Location_V2.5.0_20160526.jar" target-dir="libs" />
+        <source-file src="src/android/libs/android-async-http-1.4.6-fr.jar" target-dir="libs" />
+        <source-file src="src/android/libs/BaiduLBS_Android.jar" target-dir="libs" />
+        <source-file src="src/android/libs/core-3.1.0.jar" target-dir="libs" />
+        <source-file src="src/android/libs/jg_filter_sdk_1.1.jar" target-dir="libs" />
+        <source-file src="src/android/libs/js.jar" target-dir="libs" />
+        <source-file src="src/android/libs/mid-core-sdk-3.7.2.jar" target-dir="libs" />
+        <source-file src="src/android/libs/support-annotations-23.4.0.jar" target-dir="libs" />
+        <source-file src="src/android/libs/wup-1.0.0-SNAPSHOT.jar" target-dir="libs" />
+        
+        <resource-file src="src/android/libs/animated-vector-drawable-23.4.0.aar" target="libs/animated-vector-drawable-23.4.0.aar"/>
+        <resource-file src="src/android/libs/appcompat-v7-23.4.0.aar" target="libs/appcompat-v7-23.4.0.aar"/>
+        <resource-file src="src/android/libs/bi-sdk-8.4.47.aar" target="libs/bi-sdk-8.4.47.aar"/>
+        <resource-file src="src/android/libs/core-8.4.47.aar" target="libs/core-8.4.47.aar"/>
+        <resource-file src="src/android/libs/platform-8.4.47.aar" target="libs/platform-8.4.47.aar"/>
+        <resource-file src="src/android/libs/recyclerview-v7-23.4.0.aar" target="libs/recyclerview-v7-23.4.0.aar"/>
+        <resource-file src="src/android/libs/report-sdk-8.4.47.aar" target="libs/report-sdk-8.4.47.aar"/>
+        <resource-file src="src/android/libs/support-v4-23.4.0.aar" target="libs/support-v4-23.4.0.aar"/>
+        <resource-file src="src/android/libs/support-vector-drawable-23.4.0.aar" target="libs/support-vector-drawable-23.4.0.aar"/>
+        <resource-file src="src/android/libs/xUtils-2.6.14.aar" target="libs/xUtils-2.6.14.aar"/>
+        
+    </platform>
+
+    <!-- ios配置 -->
+    <platform name="ios">
+        <source-file src="src/ios/FineReport.m" target="com/net/ecode/fr/FineReport.m"/>
+        <header-file src="src/ios/FineReport.h" target="com/net/ecode/fr/FineReport.h"/>
+
+        <config-file parent="/*" target="config.xml">
+            <feature name="FineReport">
+                <param name="ios-package" value="FineReport" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+
+
+        <!-- 添加所需要的依赖框架 -->
+        <framework src="src/ios/libs/FineSoftL.framework" custom="true"/>
+        <resource-file src="src/ios/libs/FineResource.bundle"/>
+        
+        <source-file src="src/ios/libs/AFNetworking/AFHTTPRequestOperation.m" target="com/net/ecode/fr/libs／AFNetworking/AFHTTPRequestOperation.m"/>
+        <header-file src="src/ios/libs/AFNetworking/AFHTTPRequestOperation.h" target="com/net/ecode/fr/libs/AFNetworking/AFHTTPRequestOperation.h"/>
+        <source-file src="src/ios/libs/AFNetworking/AFHTTPRequestOperationManager.m" target="com/net/ecode/fr/libs／AFNetworking/AFHTTPRequestOperationManager.m"/>
+        <header-file src="src/ios/libs/AFNetworking/AFHTTPRequestOperationManager.h" target="com/net/ecode/fr/libs/AFNetworking/AFHTTPRequestOperationManager.h"/>
+        <source-file src="src/ios/libs/AFNetworking/AFHTTPSessionManager.m" target="com/net/ecode/fr/libs／AFNetworking/AFHTTPSessionManager.m"/>
+        <header-file src="src/ios/libs/AFNetworking/AFHTTPSessionManager.h" target="com/net/ecode/fr/libs/AFNetworking/AFHTTPSessionManager.h"/>
+        <header-file src="src/ios/libs/AFNetworking/AFNetworking.h" target="com/net/ecode/fr/libs/AFNetworking/AFNetworking.h"/>
+        <header-file src="src/ios/libs/AFNetworking/AFNetworkReachabilityManager.h" target="com/net/ecode/fr/libs/AFNetworking/AFNetworkReachabilityManager.h"/>
+        <source-file src="src/ios/libs/AFNetworking/AFNetworkReachabilityManager.m" target="com/net/ecode/fr/libs/AFNetworking/AFNetworkReachabilityManager.m"/>
+        <header-file src="src/ios/libs/AFNetworking/AFSecurityPolicy.h" target="com/net/ecode/fr/libs/AFNetworking/AFSecurityPolicy.h"/>
+        <source-file src="src/ios/libs/AFNetworking/AFSecurityPolicy.m" target="com/net/ecode/fr/libs/AFNetworking/AFSecurityPolicy.m"/>
+        <header-file src="src/ios/libs/AFNetworking/AFURLConnectionOperation.h" target="com/net/ecode/fr/libs/AFNetworking/AFURLConnectionOperation.h"/>
+        <source-file src="src/ios/libs/AFNetworking/AFURLConnectionOperation.m" target="com/net/ecode/fr/libs/AFNetworking/AFURLConnectionOperation.m"/>
+        <header-file src="src/ios/libs/AFNetworking/AFURLRequestSerialization.h" target="com/net/ecode/fr/libs/AFNetworking/AFURLRequestSerialization.h"/>
+        <source-file src="src/ios/libs/AFNetworking/AFURLRequestSerialization.m" target="com/net/ecode/fr/libs/AFNetworking/AFURLRequestSerialization.m"/>
+        <header-file src="src/ios/libs/AFNetworking/AFURLResponseSerialization.h" target="com/net/ecode/fr/libs/AFNetworking/AFURLResponseSerialization.h"/>
+        <source-file src="src/ios/libs/AFNetworking/AFURLResponseSerialization.m" target="com/net/ecode/fr/libs/AFNetworking/AFURLResponseSerialization.m"/>
+        <header-file src="src/ios/libs/AFNetworking/AFURLSessionManager.h" target="com/net/ecode/fr/libs/AFNetworking/AFURLSessionManager.h"/>
+        <source-file src="src/ios/libs/AFNetworking/AFURLSessionManager.m" target="com/net/ecode/fr/libs/AFNetworking/AFURLSessionManager.m"/>
+        <header-file src="src/ios/libs/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h" target="com/net/ecode/fr/libs/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h"/>
+        <source-file src="src/ios/libs/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m" target="com/net/ecode/fr/libs/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"/>
+        <header-file src="src/ios/libs/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"/>
+        <source-file src="src/ios/libs/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"/>
+        <header-file src="src/ios/libs/UIKit+AFNetworking/UIAlertView+AFNetworking.h" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIAlertView+AFNetworking.h"/>
+        <source-file src="src/ios/libs/UIKit+AFNetworking/UIAlertView+AFNetworking.m" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIAlertView+AFNetworking.m"/>
+        <header-file src="src/ios/libs/UIKit+AFNetworking/UIButton+AFNetworking.h" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIButton+AFNetworking.h"/>
+        <source-file src="src/ios/libs/UIKit+AFNetworking/UIButton+AFNetworking.m" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIButton+AFNetworking.m"/>
+        <header-file src="src/ios/libs/UIKit+AFNetworking/UIImageView+AFNetworking.h" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIImageView+AFNetworking.h"/>
+        <source-file src="src/ios/libs/UIKit+AFNetworking/UIImageView+AFNetworking.m" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIImageView+AFNetworking.m"/>
+        <header-file src="src/ios/libs/UIKit+AFNetworking/UIKit+AFNetworking.h" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIKit+AFNetworking.h"/>
+        <header-file src="src/ios/libs/UIKit+AFNetworking/UIProgressView+AFNetworking.h" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIProgressView+AFNetworking.h"/>
+        <source-file src="src/ios/libs/UIKit+AFNetworking/UIProgressView+AFNetworking.m" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIProgressView+AFNetworking.m"/>
+        <header-file src="src/ios/libs/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h"/>
+        <source-file src="src/ios/libs/UIKit+AFNetworking/UIRefreshControl+AFNetworking.m" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIRefreshControl+AFNetworking.m"/>
+        <header-file src="src/ios/libs/UIKit+AFNetworking/UIWebView+AFNetworking.h" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIWebView+AFNetworking.h"/>
+        <source-file src="src/ios/libs/UIKit+AFNetworking/UIWebView+AFNetworking.m" target="com/net/ecode/fr/libs/UIKit+AFNetworking/UIWebView+AFNetworking.m"/>
+
+        <source-file src="src/ios/libs/WeiXinSDK/libWeChatSDK.a" framework="true"/>
+        <source-file src="src/ios/libs/XGPush/libXG-SDK.a" framework="true"/>
+
+        
+        <framework src="src/ios/framework/AudioToolbox.framework"/>
+        <framework src="src/ios/framework/CFNetwork.framework"/>
+        <framework src="src/ios/framework/CoreGraphics.framework"/>
+        <framework src="src/ios/framework/CoreLocation.framework"/>
+        <framework src="src/ios/framework/CoreMedia.framework"/>
+        <framework src="src/ios/framework/CoreTelephony.framework"/>
+        <framework src="src/ios/framework/Foundation.framework"/>
+        <framework src="src/ios/framework/JavaScriptCore.framework"/>
+        <framework src="src/ios/framework/MessageUI.framework"/>
+        <framework src="src/ios/framework/MobileCoreServices.framework"/>
+        <framework src="src/ios/framework/OpenGLES.framework"/>
+        <framework src="src/ios/framework/QuartzCore.framework"/>
+        <framework src="src/ios/framework/Security.framework"/>
+        <framework src="src/ios/framework/SystemConfiguration.framework"/>
+        <framework src="src/ios/framework/UIKit.framework"/>
+        <framework src="src/ios/framework/libc++.1.tbd"/>
+        <framework src="src/ios/framework/libsqlite3.tbd"/>
+        <framework src="src/ios/framework/libstdc++.6.0.9.tbd"/>
+        <framework src="src/ios/framework/libxml2.2.tbd"/>
+        <framework src="src/ios/framework/libz.1.tbd"/>
+    </platform>
+</plugin>
